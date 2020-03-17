@@ -25,7 +25,8 @@ function addConfirmedHandler() {
         form.task.value,
         form.priority.value,
         form.status.value,
-        form.description.value
+        form.description.value,
+        form.timestamp.value
     )
     
     if (isInputCorrect(form)) {
@@ -73,7 +74,8 @@ function EditConfirmedHandler() {
         form.task.value,
         form.priority.value,
         form.status.value,
-        form.description.value
+        form.description.value,
+        form.timestamp.value
     )
     
     if (isInputCorrect(form)) {

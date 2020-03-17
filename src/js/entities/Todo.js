@@ -1,7 +1,7 @@
 'use strict';
 
 class Todo {
-    constructor(id, task, priority, status, description) {
+    constructor(id, task, priority, status, description, timestamp) {
         this.id = id;
         this.status = status;
         this.priority = priority;
@@ -11,6 +11,7 @@ class Todo {
         } else {
             this.description = 'No description';
         }
+        this.timestamp = timestamp;
 
         this.root
     }
@@ -22,6 +23,7 @@ class Todo {
         new DOMElement('td', this.root).HTML(this.priority);
         new DOMElement('td', this.root).HTML(this.status);
         new DOMElement('td', this.root).HTML(this.description);
+        new DOMElement('td', this.root).HTML(this.timestamp);
         const actionsNest = new DOMElement('td', this.root);
         new ActionBar(actionsNest.get(), this.id, ['Edit', 'Delete']);
         

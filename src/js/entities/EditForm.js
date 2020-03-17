@@ -39,5 +39,11 @@ class EditForm extends Form {
         } else {
             new Input(this.taskNest, 'description', 'Task description', this.todo.description);
         }
+
+        //Timestamp row
+        this.timestampRow = new DOMElement('tr', this.table).get();
+        new DOMElement('th', this.timestampRow).HTML('Added');
+        this.timestampRow = new DOMElement('td', this.timestampRow).get();
+        new Input(this.timestampRow, 'timestamp', '', this.todo.timestamp).get().disabled = true;
     }
 }

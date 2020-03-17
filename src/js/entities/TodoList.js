@@ -28,6 +28,7 @@ class TodoList extends DOMElement{
         new DOMElement('th', tr.get()).HTML('Priority');
         new DOMElement('th', tr.get()).HTML('Status');
         new DOMElement('th', tr.get()).HTML('Description');
+        new DOMElement('th', tr.get()).HTML('Added');
         new DOMElement('th', tr.get()).HTML('Actions');
     }
 

@@ -33,5 +33,11 @@ class AddForm extends Form {
         new DOMElement('th', this.taskRow).HTML('Description');
         this.taskNest = new DOMElement('td', this.taskRow).get();
         new Input(this.taskNest, 'description', 'Task description');
+
+        //Timestamp row
+        this.timestampRow = new DOMElement('tr', this.table).get();
+        new DOMElement('th', this.timestampRow).HTML('Added');
+        this.timestampRow = new DOMElement('td', this.timestampRow).get();
+        new Input(this.timestampRow, 'timestamp', '', moment().format('Do MMM, h:mm a')).get().disabled = true;
     }
 }
