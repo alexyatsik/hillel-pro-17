@@ -1,0 +1,26 @@
+{
+  "name": "todolist",
+  "version": "1.0.0",
+  "description": "A todo list using moment.js and bootstrap",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexyatsik/hillel-pro-17.git"
+  },
+  "author": "Alexeii Yatsenko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexyatsik/hillel-pro-17/issues"
+  },
+  "homepage": "https://github.com/alexyatsik/hillel-pro-17#readme",
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "jquery": "^3.4.1",
+    "moment": "^2.24.0",
+    "popper.js": "^1.16.1",
+    "serve": "^11.3.0"
+  }
+}
