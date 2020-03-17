@@ -1,0 +1,17 @@
+{
+    "statuses": [
+        { "id": "1", "value": "In progress" },
+        { "id": "2", "value": "Completed" },
+        { "id": "3", "value": "Open" }
+    ],
+    "priorities": [
+        { "id": "1", "value": "High" },
+        { "id": "2", "value": "Mid" },
+        { "id": "3", "value": "Low" }
+    ],
+    "tasks": [
+        { "id": "1", "value": "Homework"},
+        { "id": "2", "value": "Worktask"},
+        { "id": "3", "value": "Personal"}
+    ]
+}
