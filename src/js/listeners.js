@@ -13,9 +13,11 @@ function addTodoHandler() {
     destroy('#crud-form-wrapper');
     const wrapper = new DOMElement('div', seek('#app'));
     wrapper.attr('id', 'crud-form-wrapper');
-    new AddForm(wrapper.get());
-    new Button(wrapper.get(), 'Apply').click(addConfirmedHandler);
-    new Button(wrapper.get(), 'Close').click(closeButtonHandler);
+    seek('#app').appendChild(new Modal('myModal', 'Modal title', 'Content').get());
+    //new AddForm(wrapper.get());
+    $('#myModal').modal('show');
+    //new Button(wrapper.get(), 'Apply').click(addConfirmedHandler);
+    //new Button(wrapper.get(), 'Close').click(closeButtonHandler);
 }
 
 function addConfirmedHandler() {
