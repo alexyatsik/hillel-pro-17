@@ -38,11 +38,13 @@ function addConfirmedHandler() {
         addItemToLocalStorage('todos', todo);
         addItemToPageContent(todo);
         $('#modalWindowAdd').modal('hide');
+        destroy('#modalWindowAdd');
     }
 }
 
 function closeButtonHandler() {
-    destroy('#crudForm');
+    destroy('#modalWindowEdit');
+    destroy('#modalWindowAdd');
 }
 
 function actionsHandler(event) {
@@ -51,12 +53,17 @@ function actionsHandler(event) {
 
     switch (action) {
         case 'edit':
-            destroy('#crud-form-wrapper');
-            const wrapper = new DOMElement('div', seek('#app'));
-            wrapper.attr('id', 'crud-form-wrapper');
-            new EditForm(wrapper.get(), itemId);
-            new Button(wrapper.get(), 'Apply').click(EditConfirmedHandler);
-            new Button(wrapper.get(), 'Close').click(closeButtonHandler);
+            seek('#app').appendChild(
+                new Modal(
+                    'modalWindowEdit', 
+                    'Edit item', 
+                    [
+                        closeButtonHandler, 
+                        EditConfirmedHandler
+                    ]
+                ).get());
+            new EditForm(seek('#modalWindowEditContent'), itemId);
+            $('#modalWindowEdit').modal('show');
             break;
         case 'delete':
             deleteConfirmationCheck(event.target);
@@ -86,6 +93,7 @@ function EditConfirmedHandler() {
     if (isInputCorrect(form)) {
         updateItemInLocalStorage('todos', todo);
         updateItemInPageContent(todo);
-        destroy('#crud-form-wrapper');
+        $('#modalWindowEdit').modal('hide');
+        destroy('#modalWindowEdit');
     }
 }

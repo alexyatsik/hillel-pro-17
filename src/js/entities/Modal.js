@@ -31,6 +31,7 @@ class Modal {
         headerCloseButton.attr('aria-label', 'Close');
         headerCloseButton.attr('data-dismiss', 'modal');
         headerCloseButton.HTML(`<span aria-hidden="true">&times;</span>`);
+        headerCloseButton.click(handlers[0]);
 
         const modalBody = new DOMElement('div', modalContent.get());
         modalBody.addClass('modal-body');
