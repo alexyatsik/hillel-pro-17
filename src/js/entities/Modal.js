@@ -1,7 +1,7 @@
 'use strict';
 
 class Modal {
-    constructor(modalId, title, content) {
+    constructor(modalId, title, handlers) {
         this.modal = document.createElement('div');
         this.modal.classList.add('modal', 'fade');
         this.modal.setAttribute('id', modalId);
@@ -34,6 +34,7 @@ class Modal {
 
         const modalBody = new DOMElement('div', modalContent.get());
         modalBody.addClass('modal-body');
+        modalBody.attr('id', `${modalId}Content`);
         
         const modalFooter = new DOMElement('div', modalContent.get());
         modalFooter.addClass('modal-footer');
@@ -42,12 +43,13 @@ class Modal {
         close.addClass('btn', 'btn-secondary');
         close.attr('type', 'button');
         close.attr('data-dismiss', 'modal');
+        close.click(handlers[0]);
         const apply = new DOMElement('button', modalFooter.get());
         apply.addClass('btn', 'btn-primary');
         apply.attr('type', 'button');
+        apply.click(handlers[1]);
 
         h5.HTML(title);
-        modalBody.HTML(content);
         close.HTML('Close');
         apply.HTML('Apply');
     }

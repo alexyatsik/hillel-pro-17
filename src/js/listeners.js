@@ -10,14 +10,17 @@ function windowHandler() {
 }
 
 function addTodoHandler() {
-    destroy('#crud-form-wrapper');
-    const wrapper = new DOMElement('div', seek('#app'));
-    wrapper.attr('id', 'crud-form-wrapper');
-    seek('#app').appendChild(new Modal('myModal', 'Modal title', 'Content').get());
-    //new AddForm(wrapper.get());
-    $('#myModal').modal('show');
-    //new Button(wrapper.get(), 'Apply').click(addConfirmedHandler);
-    //new Button(wrapper.get(), 'Close').click(closeButtonHandler);
+    seek('#app').appendChild(
+        new Modal(
+            'modalWindowAdd', 
+            'Add new item', 
+            [
+                closeButtonHandler, 
+                addConfirmedHandler
+            ]
+        ).get());
+    new AddForm(seek('#modalWindowAddContent'));
+    $('#modalWindowAdd').modal('show');
 }
 
 function addConfirmedHandler() {
@@ -34,12 +37,12 @@ function addConfirmedHandler() {
     if (isInputCorrect(form)) {
         addItemToLocalStorage('todos', todo);
         addItemToPageContent(todo);
-        destroy('#crud-form-wrapper');
+        $('#modalWindowAdd').modal('hide');
     }
 }
 
 function closeButtonHandler() {
-    destroy('#crud-form-wrapper');
+    destroy('#crudForm');
 }
 
 function actionsHandler(event) {
